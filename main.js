@@ -107,6 +107,8 @@ function getRemaining(){
         if(parseInt(sisaquota)<=0){
             document.getElementById("tdremaining").innerText = "Kuota Habis";
             $("#tdremaining").css('color','red');
+            $("#btn-jemaat").hide();
+            $("#btn-tamu").hide();
         }
         else{
             document.getElementById("tdremaining").innerText = sisaquota;
@@ -122,42 +124,6 @@ const header = {
     'Content-Type': "application/x-www-form-urlencoded" }
 };
 
-
-
-// async function postJemaat(){
-//     $("#modalJemaat").modal('hide');
-//     document.getElementById("con-jem").hidden = true;
-//     document.getElementById("con-jem-success").hidden = false;
-//     $("#next-jem").text(next);
-//     $("#nama-jem").text($("#namajemaat").val());
-//     // getQR();
-//     var datajemaat = {
-//         id_ibadah: idibadah,
-//         nik: $("#nikjemaat").val(),
-//         nama_jemaat: $("#namajemaat").val(),
-//         wilayah: $("#select-wilayah").val(),
-//         kelompok: $('#select-kelompok').val(),
-//         umur: $("#umurjemaat").val()
-//     }
-//     var he = await axios.post('https://gkjw-ngagel-api.herokuapp.com/api/registration', datajemaat, config).then(function(response){
-//         console.log(response.data)
-//         console.log(response.data.uuid)
-//         var qrcode = new QRCode(document.getElementById("qrcodejem"), {
-//             text: response.data.uuid,
-//             width: 240,
-//             height: 240,
-//             colorDark : "#000000",
-//             colorLight : "#ffffff",
-//             correctLevel : QRCode.CorrectLevel.H,
-//             crossOrigin: "Anonymous"
-//         });
-//         $('#qrcodejem img').css('border-color','#C8DDF2');
-//         $('#qrcodejem img').css('border-width','0.5em');
-//         $('#qrcodejem img').css('border-style','solid');
-//         $('#qrcodejem img').css('border-radius','10px');
-//         $('#qrcodejem img').css('padding','1em');
-//     })
-// }
 
 function postJemaat(){
     $("#modalJemaat").modal('hide');
@@ -233,23 +199,3 @@ function postTamu(){
        $("#qrcodetam").text('Pendaftaran Gagal! NIK sudah terdaftar');
     })
 }
-
-// function downqrjem(){
-//     window.scrollTo(0,0);
-//     domtoimage.toJpeg(document.getElementById('con-jem-success'), { cacheBust: true }, { quality: 0.95 })
-//     .then(function (dataUrl) {
-//         var link = document.createElement('a');
-//         link.download = 'my-image-name.jpeg';
-//         link.href = dataUrl;
-//         link.click();
-//     });
-// }
-// function hehe(){
-//     document.getElementById("anjay").innerText = sisaquota;
-// }
-
-// function getDataRequest(){
-//     axios.get('https://gkjw-ngagel-api.herokuapp.com/api/nearest').then(function(response){
-//         return response.data.remaining;
-//     })
-// }
