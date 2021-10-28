@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+html, body{
+    min-height: 100vh;
+}
+
+body{
+    background-image: url(images/bg.png);
+    background-size: 100%;
+    font-family: 'Karla', sans-serif;
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+    display: table;
+    padding: 0.5em;
+}
+
+#conhome{
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#conhome .row{
+    justify-content: center;
+    text-align: center;
+}
+
+#rowlogo img{
+    max-width: 70%;
+}
+
+/* #rowlogo h1{
+    color: #45474B;
+} */
+
+#tbremaining {
+    text-align: center;
+    justify-content: center;
+    max-width: 70%;
+    border-collapse: collapse;
+    border-color: #C8DDF2;
+    border-radius: 1em;
+    border-style: solid;
+    overflow: hidden;
+}
+
+/* #tdheaderremaining, #tdremaining{
+    border-color: #C8DDF2;
+} */
+
+/* #rowpilih{
+    justify-content: center;
+    text-align: center;
+    max-width: 80%;
+} */
+
+#colpilih{
+    max-width: 70%;
+}
+
+.pil{
+    background-color: #C8DDF2;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 1em;
+    text-align: center;
+    justify-content: center;
+}
+
+
+#col-jemaat, #col-tamu{
+    text-align: center;
+}
+
+
+#rowpilih .col-6 img{
+    max-width: 70%;
+    vertical-align:middle;
+}
+
+.pil p{
+    margin-top: 0.5em;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#con-jem, #con-tam{
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#rowlogojem img, #rowlogotam img{
+    max-width: 50%;
+}
+
+#jem .row, #tam .row{
+    justify-content: center;
+    text-align: center;
+}
+
+#rowjem, #rowtam{
+    justify-content: center;
+}
+
+#formjem, #formtam{
+    max-width: 95%;
+}
+
+.btnformnext{
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+.btnformback{
+    text-align: center;
+    margin-top: 0.4em;
+}
+
+#btnnextjem, #btnnexttam{
+    background-color: #C8DDF2;
+    font-weight: 600;
+}
+
+
+
+#btnbackjem, #btnbacktam{
+    background-color: #FFFFFF;
+    color: #6F8AB7;
+    border-style: solid;
+    border-color: #C8DDF2;
+}
+
+.form-label{
+    font-weight: 600;
+}
+
+#modalJemaat .btn-primary, #modalTamu .btn-primary{
+    background-color: #6F8AB7;
+}
+
+#modalJemaat .btn-secondary, #modalTamu .btn-secondary{
+    background-color: #FFFDE7;
+    color: #6F8AB7;
+}
+
+#con-jem-success, #con-tam-success {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.whitebg{
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #6F8AB7;
+    border-width: 3px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#rowlogojemsuccess img, #rowlogotamsuccess img{
+    max-width: 50%;
+}
+
+#rowlogojemsuccess, #rowlogotamsuccess{
+    justify-content: center;
+    text-align: center;
+}
+
+#jem-success .row, #tam-success .row{
+    justify-content: center;
+    text-align: center;
+}
+
+#rowjemsucess, #rowjemss, #rowtamsuccess, #rowtamss{
+    justify-content: center;
+}
+
+.labelsuccess{
+    font-weight: 600;
+}
+
+.labelss{
+    font-weight: 800;
+}
+
+#detjemsuccess .col-12 p, #dettamsuccess .col-12 p {
+    margin: 0.2em;
+}
+
+#detjemsuccess, #dettamsuccess{
+    padding-left: 2em;
+}
+
+#qrcodejem, #qrcodetam{
+    display: flex;
+    justify-content: center;
+
+}
