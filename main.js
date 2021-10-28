@@ -1,8 +1,5 @@
 $(document).ready(function(){
     getRemaining();
-    // const interval = setInterval(function(){
-    //     getRemaining();
-    // },5000)
     $("#btn-jemaat").click(function(){
         document.getElementById("conhome").hidden = true;
         document.getElementById("con-jem").hidden = false;
@@ -78,12 +75,6 @@ document.addEventListener('contextmenu', function(e) {
 });
 
 var sisaquota = 0;
-// async function loadData(){
-//     const data = await axios.get('https://gkjw-ngagel-api.herokuapp.com/api/nearest');
-//     var sisa = data.remaining;
-//     console.log(sisa);
-// }
-
 
 var TOKEN = "1|RcUIPpe8iY3bmNaYleZh23yevOVe0FtXxaWK1MQd"
 const config = {
