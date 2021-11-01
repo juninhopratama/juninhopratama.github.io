@@ -8,6 +8,7 @@ $(document).ready(function(){
         html5QrcodeScanner.resume();
         document.getElementById("btnSelanjutnya").hidden = true;
         document.getElementById("resultTable").hidden = true;
+        document.getElementById("guide").hidden = true;
     })
 })
 
