@@ -23,7 +23,7 @@ function onScanSuccess(decodedText, decodedResult) {
     }).then(function(){
         document.getElementById("resultTable").hidden = false;
         document.getElementById("btnSelanjutnya").hidden = false;
-        document.getElementById("guide").hidden = false;
+        document.getElementById("guide").hidden = true;
         if(messageRes == "Code has been scanned!"){
             $("#tableBody").removeClass('table-success').addClass('table-danger');
             document.getElementById("messageResponse").innerText = "QR Code sudah discan!";
