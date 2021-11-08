@@ -55,7 +55,7 @@ $(document).ready(function(){
     })
     $("#btnnexttam").click(function(){
         var lanjut=true;
-        // var namatamu = $("#namatamu").val();
+        var namatamu = $("#namatamu").val();
         // var day=$("#tgltamu").val();
         // var month=$("#select-bulan-tam").val();
         // var year=$("#thntamu").val();
