@@ -1,5 +1,13 @@
 $(document).ready(function(){
     getRemaining();
+    // var today = new Date();
+    // var dd = String(today.getDate()).padStart(2, '0');
+    // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    // var yyyy = today.getFullYear();
+    // // today = mm + '-' + dd + '-' + yyyy;
+    // today = yyyy+ '-' + mm + '-' + dd;
+    // $("#tgltamu").val(today);
+    // $("#tgljemaat").val(today);
     $("#btn-jemaat").click(function(){
         document.getElementById("conhome").hidden = true;
         document.getElementById("con-jem").hidden = false;
@@ -19,20 +27,21 @@ $(document).ready(function(){
     $("#btnnextjem").click(function(){
         var lanjut=true;
         var namajemaat = $("#namajemaat").val();
-        var nikjemaat = $("#nikjemaat").val();
-        var umurjemaat = $("#umurjemaat").val();
+        var day=$("#tgljemaat").val();
+        var month=$("#select-bulan-jem").val();
+        var year=$("#thnjemaat").val();
+        var tgljemaat = ([year,month,day].join('-'));
         var wilayah = $("#select-wilayah").val();
         var kelompok = $("#select-kelompok").val();
 
-        if(namajemaat=="" || nikjemaat=="" || umurjemaat == "" || wilayah == "" || kelompok == ""){
+        if(namajemaat=="" || tgljemaat=="" || wilayah == "" || kelompok == ""){
             lanjut=false;
         }
         
         if(lanjut){
             //modal jemaat
             $("#mnamajemaat").text(namajemaat);
-            $("#mnikjemaat").text(nikjemaat);
-            $("#musiajemaat").text(umurjemaat);
+            $("#mtgljemaat").text(tgljemaat);
             $("#mwilayah").text(wilayah);
             $("#mkelompok").text(kelompok);
             $('#modalJemaat').modal('show');
@@ -46,19 +55,20 @@ $(document).ready(function(){
     $("#btnnexttam").click(function(){
         var lanjut=true;
         var namatamu = $("#namatamu").val();
-        var niktamu = $("#niktamu").val();
-        var umurtamu = $("#umurtamu").val();
+        var day=$("#tgltamu").val();
+        var month=$("#select-bulan-tam").val();
+        var year=$("#thntamu").val();
+        var tgltamu = ([year,month,day].join('-'));
         var gerejaasal = $("#gerejaasal").val();
 
-        if(namatamu=="" || niktamu=="" || umurtamu == "" || gerejaasal == ""){
+        if(namatamu=="" || tgltamu == "" || gerejaasal == ""){
             lanjut=false;
         }
         
         if(lanjut){
             //modal tamu
             $("#mnamatamu").text(namatamu);
-            $("#mniktamu").text(niktamu);
-            $("#musiatamu").text(umurtamu);
+            $("#mtgltamu").text(tgltamu);
             $("#masaltamu").text(gerejaasal);
             $('#modalTamu').modal('show');
             return false;
@@ -122,13 +132,16 @@ function postJemaat(){
     document.getElementById("con-jem-success").hidden = false;
     $("#next-jem").text(next);
     $("#nama-jem").text($("#namajemaat").val());
+    var day=$("#tgljemaat").val();
+    var month=$("#select-bulan-jem").val();
+    var year=$("#thnjemaat").val();
+    var tgljemaat = ([day,month,year].join('-'));
     var datajemaat = {
         id_ibadah: idibadah,
-        nik: $("#nikjemaat").val(),
+        dob: tgljemaat,
         nama_jemaat: $("#namajemaat").val(),
         wilayah: $("#select-wilayah").val(),
         kelompok: $('#select-kelompok').val(),
-        umur: $("#umurjemaat").val()
     }
     axios.post('https://gkjw-ngagel-api.herokuapp.com/api/registration', datajemaat, config).then(function(response){
         //magic
@@ -160,12 +173,15 @@ function postTamu(){
     document.getElementById("con-tam-success").hidden = false;
     $("#next-tam").text(next);
     $("#nama-tam").text($("#namatamu").val());
+    var day=$("#tgltamu").val();
+    var month=$("#select-bulan-tam").val();
+    var year=$("#thntamu").val();
+    var tgltamu = ([day,month,year].join('-'));
     var datatamu = {
         id_ibadah: idibadah,
-        nik: $("#niktamu").val(),
+        dob: tgltamu,
         nama_jemaat: $("#namatamu").val(),
         gereja_asal: $("#gerejaasal").val(),
-        umur: $("#umurtamu").val()
     }
     axios.post('https://gkjw-ngagel-api.herokuapp.com/api/registration', datatamu, config).then(function(response){
         //magic
