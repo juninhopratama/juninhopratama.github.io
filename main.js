@@ -27,10 +27,11 @@ $(document).ready(function(){
     $("#btnnextjem").click(function(){
         var lanjut=true;
         var namajemaat = $("#namajemaat").val();
-        var day=$("#tgljemaat").val();
-        var month=$("#select-bulan-jem").val();
-        var year=$("#thnjemaat").val();
-        var tgljemaat = ([year,month,day].join('-'));
+        // var day=$("#tgljemaat").val();
+        // var month=$("#select-bulan-jem").val();
+        // var year=$("#thnjemaat").val();
+        // var tgljemaat = ([year,month,day].join('-'));
+        var tgljemaat = $("#dobjemaat").val();
         var wilayah = $("#select-wilayah").val();
         var kelompok = $("#select-kelompok").val();
 
@@ -54,11 +55,12 @@ $(document).ready(function(){
     })
     $("#btnnexttam").click(function(){
         var lanjut=true;
-        var namatamu = $("#namatamu").val();
-        var day=$("#tgltamu").val();
-        var month=$("#select-bulan-tam").val();
-        var year=$("#thntamu").val();
-        var tgltamu = ([year,month,day].join('-'));
+        // var namatamu = $("#namatamu").val();
+        // var day=$("#tgltamu").val();
+        // var month=$("#select-bulan-tam").val();
+        // var year=$("#thntamu").val();
+        var tgltamu = $("#dobtamu").val();
+        // var tgltamu = ([year,month,day].join('-'));
         var gerejaasal = $("#gerejaasal").val();
 
         if(namatamu=="" || tgltamu == "" || gerejaasal == ""){
@@ -132,13 +134,14 @@ function postJemaat(){
     document.getElementById("con-jem-success").hidden = false;
     $("#next-jem").text(next);
     $("#nama-jem").text($("#namajemaat").val());
-    var day=$("#tgljemaat").val();
-    var month=$("#select-bulan-jem").val();
-    var year=$("#thnjemaat").val();
-    var tgljemaat = ([day,month,year].join('-'));
+    // var day=$("#tgljemaat").val();
+    // var month=$("#select-bulan-jem").val();
+    // var year=$("#thnjemaat").val();
+    // var tgljemaat = ([day,month,year].join('-'));
     var datajemaat = {
         id_ibadah: idibadah,
-        dob: tgljemaat,
+        // dob: tgljemaat,
+        dob: $("#dobjemaat").val(),
         nama_jemaat: $("#namajemaat").val(),
         wilayah: $("#select-wilayah").val(),
         kelompok: $('#select-kelompok').val(),
@@ -173,13 +176,14 @@ function postTamu(){
     document.getElementById("con-tam-success").hidden = false;
     $("#next-tam").text(next);
     $("#nama-tam").text($("#namatamu").val());
-    var day=$("#tgltamu").val();
-    var month=$("#select-bulan-tam").val();
-    var year=$("#thntamu").val();
-    var tgltamu = ([day,month,year].join('-'));
+    // var day=$("#tgltamu").val();
+    // var month=$("#select-bulan-tam").val();
+    // var year=$("#thntamu").val();
+    // var tgltamu = ([day,month,year].join('-'));
     var datatamu = {
         id_ibadah: idibadah,
-        dob: tgltamu,
+        // dob: tgltamu,
+        dob: $("#dobtamu").val(),
         nama_jemaat: $("#namatamu").val(),
         gereja_asal: $("#gerejaasal").val(),
     }
