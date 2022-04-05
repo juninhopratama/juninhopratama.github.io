@@ -18,7 +18,7 @@
             <div class="row">
                 <p>Silakan pilih menu dibawah untuk melakukan pendaftaran</p>
             </div>
-            <div class="row" id="rowremaining">
+            <!-- <div class="row" id="rowremaining">
                 <table id="tbremaining" class="table table-borderless align-middle">
                     <thead>
                         <tr>
@@ -35,7 +35,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
             <div class="row" id="rowpilih">
                 <div class="col-12" id="colpilih">
                     <div class="row">
@@ -70,6 +70,12 @@
             </div>
             <div id="rowjem" class="row">
                 <form class="row" id="formjem">
+                    <div class="mb-3">
+                        <label for="pilibadah" class="form-label">Pilih Tanggal Ibadah</label>
+                        <!-- <input type="text" class="form-control" id="pilibadah" placeholder="Masukkan nama Anda"> -->
+                        <select name="pilibadah" id="pilibadah">
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="namajemaat" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="namajemaat" placeholder="Masukkan nama Anda">
@@ -151,6 +157,12 @@
             <div id="rowtam" class="row">
                 <form class="row" id="formtam">
                     <div class="mb-3">
+                        <label for="pilibadah" class="form-label">Pilih Tanggal Ibadah</label>
+                        <!-- <input type="text" class="form-control" id="pilibadah" placeholder="Masukkan nama Anda"> -->
+                        <select name="pilibadah" id="pilibadah">
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="namatamu" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="namatamu" placeholder="Masukkan nama Anda">
                     </div>
@@ -230,7 +242,7 @@
                     <div class="col-12">
                         <p class="labelsuccess">Jadwal Ibadah</p>
                         <p><span class="labelsuccess">Hari/Tanggal: </span><span id="next-jem"></span></p>
-                        <p><span class="labelsuccess">Waktu: </span><span>09.00 WIB - selesai</span></p>
+                        <p><span class="labelsuccess">Waktu: </span><span id="jam-ibadah">09.00 WIB - selesai</span></p>
                     </div>
                 </div>
                 <br>

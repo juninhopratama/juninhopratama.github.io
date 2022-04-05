@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    getRemaining();
+    // getRemaining();
+    getNext();
     // var today = new Date();
     // var dd = String(today.getDate()).padStart(2, '0');
     // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -27,6 +28,7 @@ $(document).ready(function(){
     $("#btnnextjem").click(function(){
         var lanjut=true;
         var namajemaat = $("#namajemaat").val();
+        var id_ibadah = $("#pilibadah").val();
         // var day=$("#tgljemaat").val();
         // var month=$("#select-bulan-jem").val();
         // var year=$("#thnjemaat").val();
@@ -34,8 +36,11 @@ $(document).ready(function(){
         var tgljemaat = $("#dobjemaat").val();
         var wilayah = $("#select-wilayah").val();
         var kelompok = $("#select-kelompok").val();
-
-        if(namajemaat=="" || tgljemaat=="" || wilayah == "" || kelompok == ""){
+        if (id_ibadah == null) {
+            alert("Mohon maaf kuota ibadah tidak tersedia.");
+            return false;
+        }
+        if(namajemaat=="" || tgljemaat=="" || wilayah == "" || kelompok == "" || id_ibadah == null){
             lanjut=false;
         }
         
@@ -56,12 +61,18 @@ $(document).ready(function(){
     $("#btnnexttam").click(function(){
         var lanjut=true;
         var namatamu = $("#namatamu").val();
+        var id_ibadah = $("#pilibadah").val();
         // var day=$("#tgltamu").val();
         // var month=$("#select-bulan-tam").val();
         // var year=$("#thntamu").val();
         var tgltamu = $("#dobtamu").val();
         // var tgltamu = ([year,month,day].join('-'));
         var gerejaasal = $("#gerejaasal").val();
+        
+        if (id_ibadah == null) {
+            alert("Mohon maaf kuota ibadah tidak tersedia.");
+            return false;
+        }
 
         if(namatamu=="" || tgltamu == "" || gerejaasal == ""){
             lanjut=false;
@@ -94,8 +105,37 @@ const config = {
     Accept: "application/json" }
 };
 
+const config1 = {
+    headers: {
+    Accept: "application/json" }
+};
+
 var idibadah;
 var next;
+var results;
+function getNext(){
+    // console.log(data);
+    axios.get('https://gkjw-ngagel-api.herokuapp.com/api/v2/nearest',config1).then(function(response){
+        results = response.data.ibadah;
+    }).catch(function (error) {
+        // handle error
+        document.getElementById("tdremaining").innerText = error;
+    }).then(function(){
+        for(var k in results){
+            var select = document.getElementById("pilibadah");
+            var option = document.createElement("option");
+            option.text = results[k].nama_ibadah + "|" + results[k].jam_ibadah + " (" + results[k].remaining + "/" + results[k].quota +")";
+            option.value = results[k].id_ibadah;
+            if (results[k].remaining == 0) {
+                option.disabled = true;
+            }
+            select.appendChild(option);
+        }
+        document.getElementById("tdremaining").innerText = "Kuota Tersedia";
+            $("#tdremaining").css('color','black');
+    })
+}
+
 function getRemaining(){
     // console.log(data);
     axios.get('https://gkjw-ngagel-api.herokuapp.com/api/nearest',config).then(function(response){
@@ -132,14 +172,15 @@ function postJemaat(){
     $("#modalJemaat").modal('hide');
     document.getElementById("con-jem").hidden = true;
     document.getElementById("con-jem-success").hidden = false;
-    $("#next-jem").text(next);
+    $("#next-jem").text(results[$("#pilibadah").val()].next);
     $("#nama-jem").text($("#namajemaat").val());
+    $("#jam-ibadah").text(results[$("#pilibadah").val()].jam_ibadah);
     // var day=$("#tgljemaat").val();
     // var month=$("#select-bulan-jem").val();
     // var year=$("#thnjemaat").val();
     // var tgljemaat = ([day,month,year].join('-'));
     var datajemaat = {
-        id_ibadah: idibadah,
+        id_ibadah: $("#pilibadah").val(),
         // dob: tgljemaat,
         dob: $("#dobjemaat").val(),
         nama_jemaat: $("#namajemaat").val(),
@@ -181,7 +222,7 @@ function postTamu(){
     // var year=$("#thntamu").val();
     // var tgltamu = ([day,month,year].join('-'));
     var datatamu = {
-        id_ibadah: idibadah,
+        id_ibadah: $("#pilibadah").val(),
         // dob: tgltamu,
         dob: $("#dobtamu").val(),
         nama_jemaat: $("#namatamu").val(),
