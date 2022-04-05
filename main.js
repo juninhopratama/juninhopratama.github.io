@@ -232,7 +232,7 @@ function postTamu(){
     // var year=$("#thntamu").val();
     // var tgltamu = ([day,month,year].join('-'));
     var datatamu = {
-        id_ibadah: $("#pilibadah").val(),
+        id_ibadah: $("#pilibadahtam").val(),
         // dob: tgltamu,
         dob: $("#dobtamu").val(),
         nama_jemaat: $("#namatamu").val(),
