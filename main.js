@@ -131,6 +131,16 @@ function getNext(){
             }
             select.appendChild(option);
         }
+        for(var k in results){
+            var select = document.getElementById("pilibadahtam");
+            var option = document.createElement("option");
+            option.text = results[k].nama_ibadah + "|" + results[k].jam_ibadah + " (" + results[k].remaining + "/" + results[k].quota +")";
+            option.value = results[k].id_ibadah;
+            if (results[k].remaining == 0) {
+                option.disabled = true;
+            }
+            select.appendChild(option);
+        }
         document.getElementById("tdremaining").innerText = "Kuota Tersedia";
             $("#tdremaining").css('color','black');
     })
