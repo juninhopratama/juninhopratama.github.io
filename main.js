@@ -217,7 +217,7 @@ function postJemaat(){
         $('#qrcodejem img').css('border-radius','10px');
         $('#qrcodejem img').css('padding','1em');
     }).catch(function (error) {
-       $("#qrcodejem").text('Pendaftaran Gagal! NIK sudah terdaftar');
+       $("#qrcodejem").text('Pendaftaran Gagal! NIK sudah terdaftar atau Kuota Penuh');
     })
 }
 
@@ -258,6 +258,6 @@ function postTamu(){
         $('#qrcodetam img').css('border-radius','10px');
         $('#qrcodetam img').css('padding','1em');
     }).catch(function (error) {
-       $("#qrcodetam").text('Pendaftaran Gagal! NIK sudah terdaftar');
+       $("#qrcodetam").text('Pendaftaran Gagal! NIK sudah terdaftar atau Kuota Penuh');
     })
 }
