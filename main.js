@@ -126,7 +126,7 @@ function getNext(){
             var option = document.createElement("option");
             option.text = results[k].nama_ibadah + "|" + results[k].jam_ibadah + " (" + results[k].registered + "/" + results[k].quota +")";
             option.value = results[k].id_ibadah;
-            if (results[k].remaining == 0) {
+            if (results[k].remaining <= 0) {
                 option.disabled = true;
             }
             select.appendChild(option);
@@ -136,7 +136,7 @@ function getNext(){
             var option = document.createElement("option");
             option.text = results[k].nama_ibadah + "|" + results[k].jam_ibadah + " (" + results[k].registered + "/" + results[k].quota +")";
             option.value = results[k].id_ibadah;
-            if (results[k].remaining == 0) {
+            if (results[k].remaining <= 0) {
                 option.disabled = true;
             }
             select.appendChild(option);
