@@ -125,7 +125,7 @@ function getNext(){
             var select = document.getElementById("pilibadah");
             var option = document.createElement("option");
             option.text = results[k].nama_ibadah + "|" + results[k].jam_ibadah + " (" + results[k].registered + "/" + results[k].quota +")";
-            option.value = results[k].id_ibadah;
+            option.value = k;
             if (results[k].remaining <= 0) {
                 option.disabled = true;
             }
@@ -135,7 +135,7 @@ function getNext(){
             var select = document.getElementById("pilibadahtam");
             var option = document.createElement("option");
             option.text = results[k].nama_ibadah + "|" + results[k].jam_ibadah + " (" + results[k].registered + "/" + results[k].quota +")";
-            option.value = results[k].id_ibadah;
+            option.value = k;
             if (results[k].remaining <= 0) {
                 option.disabled = true;
             }
@@ -177,7 +177,6 @@ const header = {
     'Content-Type': "application/x-www-form-urlencoded" }
 };
 
-
 function postJemaat(){
     $("#modalJemaat").modal('hide');
     document.getElementById("con-jem").hidden = true;
@@ -185,12 +184,8 @@ function postJemaat(){
     $("#next-jem").text(results[$("#pilibadah").val()].next);
     $("#nama-jem").text($("#namajemaat").val());
     $("#jam-ibadah").text(results[$("#pilibadah").val()].jam_ibadah);
-    // var day=$("#tgljemaat").val();
-    // var month=$("#select-bulan-jem").val();
-    // var year=$("#thnjemaat").val();
-    // var tgljemaat = ([day,month,year].join('-'));
     var datajemaat = {
-        id_ibadah: $("#pilibadah").val(),
+        id_ibadah: results[$("#pilibadah").val()].id_ibadah,
         // dob: tgljemaat,
         dob: $("#dobjemaat").val(),
         nama_jemaat: $("#namajemaat").val(),
@@ -217,22 +212,24 @@ function postJemaat(){
         $('#qrcodejem img').css('border-radius','10px');
         $('#qrcodejem img').css('padding','1em');
     }).catch(function (error) {
-       $("#qrcodejem").text('Pendaftaran Gagal! NIK sudah terdaftar atau Kuota Penuh');
+       console.log(error);
+        $("#qrcodejem").text('Pendaftaran Gagal! NIK sudah terdaftar atau Kuota Penuh');
     })
 }
+
 
 function postTamu(){
     $("#modalTamu").modal('hide');
     document.getElementById("con-tam").hidden = true;
     document.getElementById("con-tam-success").hidden = false;
-    $("#next-tam").text(next);
+    $("#next-tam").text(results[$("#pilibadahtam").val()].next);
     $("#nama-tam").text($("#namatamu").val());
     // var day=$("#tgltamu").val();
     // var month=$("#select-bulan-tam").val();
     // var year=$("#thntamu").val();
     // var tgltamu = ([day,month,year].join('-'));
     var datatamu = {
-        id_ibadah: $("#pilibadahtam").val(),
+        id_ibadah: results[$("#pilibadahtam").val()].id_ibadah,
         // dob: tgltamu,
         dob: $("#dobtamu").val(),
         nama_jemaat: $("#namatamu").val(),
