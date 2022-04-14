@@ -224,6 +224,7 @@ function postTamu(){
     document.getElementById("con-tam-success").hidden = false;
     $("#next-tam").text(results[$("#pilibadahtam").val()].next);
     $("#nama-tam").text($("#namatamu").val());
+    $("#jam-ibadah-tam").text(results[$("#pilibadah").val()].jam_ibadah);
     // var day=$("#tgltamu").val();
     // var month=$("#select-bulan-tam").val();
     // var year=$("#thntamu").val();
