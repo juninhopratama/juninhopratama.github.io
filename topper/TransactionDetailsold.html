@@ -35,7 +35,7 @@
     <div class="container" style="padding: 50px;">
         <div class="card" id="TableSorterCard">
             <div class="row table-topper align-items-center">
-                <div class="col-4 text-start" style="margin: 0px;padding: 5px 15px;"><a class="btn btn-primary" role="button" href="UpdateTransactionHistory.html">New Record</a><button class="btn btn-primary btn-sm reset" type="button" style="padding: 5px;margin: 2px;">Reset Filters</button><button class="btn btn-warning btn-sm" id="zoom_in" type="button" zoomclick="ChangeZoomLevel(-10);" style="padding: 5px;margin: 2px;"><i class="fa fa-search-plus"></i></button><button class="btn btn-warning btn-sm" id="zoom_out" type="button" zoomclick="ChangeZoomLevel(-10);" style="padding: 5px;margin: 2px;"><i class="fa fa-search-minus"></i></button></div>
+                <div class="col-4 text-start" style="margin: 0px;padding: 5px 15px;"><a class="btn btn-primary" role="button" href="UpdateTransactionHistoryold.html">New Record</a><button class="btn btn-primary btn-sm reset" type="button" style="padding: 5px;margin: 2px;">Reset Filters</button><button class="btn btn-warning btn-sm" id="zoom_in" type="button" zoomclick="ChangeZoomLevel(-10);" style="padding: 5px;margin: 2px;"><i class="fa fa-search-plus"></i></button><button class="btn btn-warning btn-sm" id="zoom_out" type="button" zoomclick="ChangeZoomLevel(-10);" style="padding: 5px;margin: 2px;"><i class="fa fa-search-minus"></i></button></div>
                 <div class="col-4 text-center" style="margin: 0px;padding: 5px 10px;">
                     <h6 id="counter">Showing: <strong id="rowCount">ALL</strong>&nbsp;Row(s)</h6>
                 </div>
@@ -47,19 +47,21 @@
                         <table class="table table tablesorter" id="ipi-table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th>Jenis Penawaran</th>
-                                    <th class="sorter-false">Waktu Penawaran</th>
-                                    <th class="filter-false">Status Penawaran</th>
+                                    <th>Jenis Transaksi</th>
+                                    <th class="sorter-false">Nomor jenis transaksi</th>
+                                    <th class="filter-false">waktu transaksi dilakukan</th>
+                                    <th class="filter-false sorter-false">Jumlah transaksi</th>
                                     <th class="filter-false sorter-false">Keterangan</th>
                                     <th class="filter-false sorter-false">Tindakan</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Penawaran KPR</td>
-                                    <td>18 Januari 2023 | 17.00</td>
-                                    <td>Open</td>
-                                    <td>Follow up 1 Maret 2023</td>
+                                    <td>Cell 1</td>
+                                    <td>Cell 2</td>
+                                    <td>Cell 3</td>
+                                    <td>Cell 4</td>
+                                    <td>Cell 4</td>
                                     <td><button class="btn btn-primary" type="button">Update</button><button class="btn btn-primary" type="button" style="background: rgb(253,27,13);">Delete</button></td>
                                 </tr>
                                 <tr>
@@ -67,12 +69,14 @@
                                     <td>6</td>
                                     <td>7</td>
                                     <td>8</td>
+                                    <td>8</td>
                                     <td><button class="btn btn-primary" type="button">Update</button><button class="btn btn-primary" type="button" style="background: rgb(253,27,13);">Delete</button></td>
                                 </tr>
                                 <tr>
                                     <td>A</td>
                                     <td>bee</td>
                                     <td>SeA</td>
+                                    <td>D</td>
                                     <td>D</td>
                                     <td><button class="btn btn-primary" type="button">Update</button><button class="btn btn-primary" type="button" style="background: rgb(253,27,13);">Delete</button></td>
                                 </tr>
